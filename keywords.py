@@ -34,7 +34,6 @@ def count_keywords_in_pdfs(folder_path, keywords):
 
                     # 开始在当前 PDF 的文本中计数关键词
                     print("  计字数中...")
-                    # 遍历我们之前准备好的小写关键词列表
                     for keyword in lower_keywords:
                         # 使用字符串的 count() 方法计算当前关键词在小写文本中出现的次数
                         # 注意：这是子字符串匹配，如 'art' 会匹配 'start', 'article' 等
@@ -71,7 +70,7 @@ if __name__ == "__main__":
         else:
             print("输入的路径无效或不存在，请重新输入。")
 
-    # 获取用户输入的关键词
+    # 获取输入的关键词
     keywords_input = input("输入要查找的关键词, 用英文逗号分隔：")
 
     keywords_list = [kw.strip() for kw in keywords_input.split(',') if kw.strip()]
