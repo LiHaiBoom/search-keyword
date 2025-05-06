@@ -29,14 +29,12 @@ def count_keywords_in_pdfs(folder_path, keywords):
                     for page_num, page in enumerate(doc):
                         full_text += page.get_text("text")
 
-                    # 将提取到的整个 PDF 文本转换为小写，以便进行不区分大小写的关键词匹配
                     full_text_lower = full_text.lower()
 
                     # 开始在当前 PDF 的文本中计数关键词
                     print("  计字数中...")
                     for keyword in lower_keywords:
-                        # 使用字符串的 count() 方法计算当前关键词在小写文本中出现的次数
-                        # 注意：这是子字符串匹配，如 'art' 会匹配 'start', 'article' 等
+              
 
                         # 匹配完整单词
                         pattern = r'\b' + re.escape(keyword) + r'\b' 
@@ -54,7 +52,7 @@ def count_keywords_in_pdfs(folder_path, keywords):
                 print(f"  **错误**：处理文件 '{filename}' 时发生错误: {e}")
                 failed_files.append(filename)
 
-    print("\n--- 处理完成 ---")
+    print("\n处理完成 ")
     print(f"共处理 {processed_files} 个 PDF 文件。")
     if failed_files:
         print(f"以下文件处理失败: {', '.join(failed_files)}")
